@@ -264,4 +264,53 @@ hdfs dfs -get /user/hadoop/hadoop-2.7.3.tar /home/test
 # Check Hadoop cluster status
 hdfs dfsadmin -report      
 
+# Check the services status
+jps
+
+
+ss -tul
+ss -tuln #Numerical output
+
+
+hdfs dfs -cat /user/hadoop
+hdfs dfs -ls /user/hadoop
+
+
+hdfs dfs -help
+
+
+# Cluster and Apps Information (ResourceManager).
+http://<hadoopnode>:8088 
+
+# NodeManager Information.         
+http://<hadoopnode>:8042
+        
+        
+        
+
+
+        
+# Manage Hadoop Services
+#-----------------------------------------------------------------------
+stop-yarn.sh
+stop-dfs.sh
+
+# to enable Hadoop daemons system-wide
+# edit /etc/rc.local
+# su - root
+
+# Add these excerpt to rc.local file.
+su - hadoop -c "/opt/hadoop/sbin/start-dfs.sh"
+su - hadoop -c "/opt/hadoop/sbin/start-yarn.sh"
+exit 0
+
+
+chmod +x /etc/rc.d/rc.local
+systemctl enable rc-local
+systemctl start rc-local
+systemctl status rc-local
+
+
+
+
 
