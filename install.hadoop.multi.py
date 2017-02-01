@@ -56,7 +56,7 @@ tar xzf hadoop-2.7.3.tar.gz
 mv hadoop-2.7.3 hadoop
 
 chown -R hadoop:hadoop /opt/hadoop/
-  
+
 
 # Setup Environment Variables
 # su - hadoop
@@ -77,8 +77,8 @@ export HADOOP_YARN_HOME=$HADOOP_HOME
 export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
 export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
 export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
-    
-#    
+
+#
 export HADOOP_INSTALL=$HADOOP_HOME
 export YARN_HOME=$HADOOP_HOME
 
@@ -127,18 +127,18 @@ cd $HADOOP_HOME/etc/hadoop
 #-----------------------------------------------------------------------
 # Add the following inside the configuration tag
 <property>
-	  <name>dfs.data.dir</name>
-	  <value>/opt/hadoop/dfs/name/data</value>
-	  <final>true</final>
+    <name>dfs.data.dir</name>
+    <value>/opt/hadoop/dfs/name/data</value>
+    <final>true</final>
 </property>
 <property>
-	  <name>dfs.name.dir</name>
-	  <value>/opt/hadoop/dfs/name</value>
-	  <final>true</final>
+    <name>dfs.name.dir</name>
+    <value>/opt/hadoop/dfs/name</value>
+    <final>true</final>
 </property>
 <property>
-	  <name>dfs.replication</name>
-	  <value>1</value>
+    <name>dfs.replication</name>
+    <value>1</value>
 </property>
 
 
@@ -170,7 +170,7 @@ chown -R hadoop:hadoop /opt/volume/
 # Add the following inside the configuration tag
 <property>
     <name>mapred.job.tracker</name>
-	  <value>hadoop-namenode:9001</value>
+    <value>hadoop-namenode:9001</value>
 </property>
 
 
@@ -202,7 +202,7 @@ rsync -auvx $HADOOP_HOME hadoop-datanode-1:$HADOOP_HOME
 rsync -auvx $HADOOP_HOME hadoop-datanode-2:$HADOOP_HOME
 
 
-  
+
 # Configure Hadoop on namenode Server Only
 # su - hadoop
 cd $HADOOP_HOME/etc/hadoop
@@ -227,9 +227,9 @@ hdfs namenode -format
 #-----------------------------------------------------------------------
 # Add the following inside the configuration tag
 <property>
-	  <name>dfs.data.dir</name>
-	  <value>/opt/hadoop/dfs/name/data</value>
-	  <final>true</final>
+    <name>dfs.data.dir</name>
+    <value>/opt/hadoop/dfs/name/data</value>
+    <final>true</final>
 </property>
 
 
@@ -258,16 +258,10 @@ http://<hadoopnode>:50070/explorer.html#/user/hadoop/
 
 # Now copy logs directory for hadoop distributed file system to local file system.
 hdfs dfs -get /user/hadoop/hadoop-2.7.3.tar /home/test
-    
-    
-    
-    
+
+
+
 # Check Hadoop cluster status
 hdfs dfsadmin -report      
-    
-    
-    
-    
-    
-    
-    
+
+
