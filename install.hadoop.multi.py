@@ -45,6 +45,55 @@ chmod 0600 ~/.ssh/authorized_keys
 exit
 
 
+# Download and Extract Hadoop Source
+# su - hadoop
+cd /opt
+wget http://www-us.apache.org/dist/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz
+tar xzf hadoop-2.7.3.tar.gz
+mv hadoop-2.7.3 hadoop
+
+chown -R hadoop:hadoop /opt/hadoop/
+  
+
+# Setup Environment Variables
+# su - hadoop
+# ~/.bashrc  
+# ~/.bash_profile
+
+
+## JAVA env variables
+export JAVA_HOME=/usr/java/default
+export PATH=$PATH:$JAVA_HOME/bin
+export CLASSPATH=.:$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
+## HADOOP env variables
+export HADOOP_HOME=/opt/hadoop
+export HADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_YARN_HOME=$HADOOP_HOME
+export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
+    
+#    
+export HADOOP_INSTALL=$HADOOP_HOME
+export YARN_HOME=$HADOOP_HOME
+
+
+
+# apply the changes in current running environment
+source ~/.bashrc
+
+source ~/.bash_profile
+echo $HADOOP_HOME
+echo $JAVA_HOME
+
+
+
+
+
+
+
 
 
 
