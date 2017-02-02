@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+	<property>
+		<name>fs.defaultFS</name>
+		<value>hdfs://hadoop-cluster:8020/</value>
+	</property>
+
+	<property>
+		<name>dfs.journalnode.edits.dir</name>
+		<value>/opt/hadoop/jn</value>
+	</property>
+</configuration>
+
