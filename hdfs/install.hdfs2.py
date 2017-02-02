@@ -4,9 +4,9 @@
 
 ## Add FQDN Mapping: /etc/hosts
 #------------------------------------------------------------------------------
-10.10.0.1      nn1.hdfs   dn1.hdfs
-10.10.0.2      nn2.hdfs   dn2.hdfs   coord1 gtm1  rm1.rad
-10.10.0.3      nn3.hdfs   dn3.hdfs   coord2 gtm2  rm2.rad
+10.10.0.1      nn1.hdfs   dn1.hdfs    zk01
+10.10.0.2      nn2.hdfs   dn2.hdfs    zk02      coord1 gtm1  rm1.rad
+10.10.0.3      nn3.hdfs   dn3.hdfs    zk03      coord2 gtm2  rm2.rad
 10.10.0.4      dn4.hdfs
 10.10.0.5      dn5.hdfs
 
