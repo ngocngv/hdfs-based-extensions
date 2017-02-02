@@ -16,3 +16,17 @@
 
 
 
+
+# Change the directory to zookeeper’s conf directory.
+cp zoo_sample.cfg zoo.cfg
+
+# add
+server.1=dn1.hdfs:2888:3888
+server.2=nn1.hdfs:2888:3888
+server.3=nn2.hdfs:2888:3888
+
+    
+    
+# Copy the Java and Hadoop-2.x, zookeeper-3.x directories, and .bashrc file to all the nodes (Standby name node, Data node) using scp command.
+scp –r <path of directory> hadoop@<ipaddr>:<path where you need to copy>
+
