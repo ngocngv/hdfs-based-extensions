@@ -86,6 +86,10 @@ chown -R hadoop:hadoop /opt/hadoop/
 su - hadoop  
 # edit ~/.bashrc  |  ~/.bash_profile
   
+# Create Java Symlink
+#mkdir -p /usr/java/default/bin/
+#ln -s /usr/lib/jvm/jre-1.8.0-openjdk/bin/java /usr/java/default/bin/java
+
 
 ## JAVA env variables
 export JAVA_HOME=/usr/java/default
@@ -113,11 +117,29 @@ export PATH=$PATH:$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$ZOOKEEPER_H
   
   
   
-  
-  
-  
+# apply the changes in current running environment
+source ~/.bashrc
+
+echo $JAVA_HOME 
+echo $HADOOP_HOME 
+echo $ZOOKEEPER_HOME
   
   
   
 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
