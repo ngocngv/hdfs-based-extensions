@@ -123,8 +123,8 @@ hadoop-daemon.sh start zkfc
 
 
 # Now check the status of each Namenode, which node is Active or which node is on Standby
-hdfs haadmin –getServiceState nn1
-hdfs haadmin –getServiceState nn2
+hdfs haadmin -getServiceState nn1
+hdfs haadmin -getServiceState nn2
 
 
 
