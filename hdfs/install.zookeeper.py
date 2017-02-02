@@ -30,3 +30,22 @@ chown -R zookeeper:zookeeper /opt/zookeeper/
   
   
   
+# https://docs.midonet.org/docs/latest/quick-start-guide/rhel-7_kilo-rdo/content/_zookeeper_installation.html   
+  
+# start zookeeper
+bin/zkServer.sh start
+
+# if you need to stop
+bin/zkServer.sh stop
+
+# check if the process is running
+ps -aux | grep java
+
+# check for QuorumPeerMain
+
+# check the status of each server to see if they are in a cluster. 
+# Only one among the 3 should be master and the others are followers
+bin/zkServer.sh status
+
+  
+  
