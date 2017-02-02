@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<configuration>
+
+<!-- Site specific YARN configuration properties -->
+	<property>
+		<name>yarn.resourcemanager.ha.enabled</name>
+		<value>true</value>
+	</property>
+	<property>
+		<name>yarn.resourcemanager.cluster-id</name>
+		<value>yarn-cluster</value>
+	</property>
+	<property>
+		<name>yarn.resourcemanager.ha.rm-ids</name>
+		<value>rm1,rm2</value>
+	</property>
+	<property>
+		<name>yarn.resourcemanager.hostname.rm1</name>
+		<value>rm1.rad</value>
+	</property>
+	<property>
+		<name>yarn.resourcemanager.hostname.rm2</name>
+		<value>rm2.rad</value>
+	</property>
+	<property>
+		<name>yarn.resourcemanager.zk-address</name>
+		<value>nn1.rad:2181,nn2.rad:2181,dn1.rad:2181</value>
+	</property>
+	<property>
+		<name>yarn.resourcemanager.ha.automatic-failover.enabled</name>
+		<value>true</value>
+		<description>Enable automatic failover; By default, it is enabled only when HA is enabled.</description>
+	</property>
+</configuration>
