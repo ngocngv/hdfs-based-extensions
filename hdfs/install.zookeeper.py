@@ -27,7 +27,36 @@ chown -R zookeeper:zookeeper /opt/zookeeper/
   
   
   
+# https://docs.midonet.org/docs/latest/quick-start-guide/rhel-7_kilo-rdo/content/_zookeeper_installation.html
+
+
   
+#  
+# /opt/zookeeper/conf/zoo_sample.cfg 
+cp zoo_sample.cfg zoo.cfg  
+
+
+# Create data directory:
+mkdir -p /opt/zookeeper/data
+chown -R zookeeper:zookeeper /opt/zookeeper/data
+
+
+# Node-specific Configuration:
+
+#ZK Node 01
+# Create the /var/lib/zookeeper/data/myid file and edit it to contain the host’s ID:
+
+# echo 1 > /var/lib/zookeeper/data/myid
+
+
+
+
+
+
+
+
+
+
   
   
 # https://docs.midonet.org/docs/latest/quick-start-guide/rhel-7_kilo-rdo/content/_zookeeper_installation.html   
