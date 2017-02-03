@@ -44,11 +44,14 @@ chown -R zookeeper:zookeeper /opt/zookeeper/data
 # Node-specific Configuration:
 
 #ZK Node 01
-# Create the /var/lib/zookeeper/data/myid file and edit it to contain the host’s ID:
+# Create the /opt/zookeeper/data/myid file and edit it to contain the host’s ID:
+echo '1' > /opt/zookeeper/data/myid
 
-# echo 1 > /var/lib/zookeeper/data/myid
+#ZK Node 02
+echo '2' > /opt/zookeeper/data/myid
 
-
+#ZK Node 03
+echo '3' > /opt/zookeeper/data/myid
 
 
 
