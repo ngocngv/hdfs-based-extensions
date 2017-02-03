@@ -65,6 +65,7 @@
 		<name>dfs.namenode.shared.edits.dir</name>
 		<value>qjournal://nn1.hdfs:8485;nn2.hdfs:8485;nn3.hdfs:8485/hadoop-cluster</value>
 	</property>
+	
 	<property>
 		<name>dfs.client.failover.proxy.provider.hadoop-cluster</name>
 		<value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
@@ -73,23 +74,26 @@
 		<name>dfs.ha.automatic-failover.enabled</name>
 		<value>true</value>
 	</property>
+	
+	<!-- ha.zookeeper.quorum -->
 	<property>
 		<name>ha.zookeeper.quorum</name>
-		<value>nn1.rad:2181,nn2.rad:2181,dn1.rad:2181</value>
+		<value>zk01:2181,zk02:2181,zk03:2181</value>
 	</property>
 	<property>
 		<name>dfs.ha.fencing.methods</name>
 		<value>sshfence</value>
 	</property>
+	
+	<!-- dfs.ha.fencing.ssh.private-key -->
 	<property>
 		<name>dfs.ha.fencing.ssh.private-key-files</name>
-		<value>/opt/hadoop/home/hadoop/.ssh/id_rsa</value>
+		<value>/home/hadoop/.ssh/id_rsa</value>
 	</property>
         <property>
                 <name>dfs.support.append</name>
                 <value>true</value>
         </property>
-
 
 </configuration>
 
