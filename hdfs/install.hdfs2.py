@@ -135,9 +135,20 @@ scp –r <path of directory> hadoop@<ipaddr>:<path where you need to copy>
 
 
   
-  
-  
-  
+#  created datanode directory to store the blocks.
+mkdir -p /opt/hadoop/datanode/data1
+mkdir -p /opt/hadoop/datanode/data2
+mkdir -p /opt/hadoop/datanode/data3
+
+
+#
+mkdir -p /opt/hadoop/namenode
+
+
+# Change the permission to datanode directory.
+chmod 0755 /opt/hadoop/datanode/data1
+
+chown -R hadoop:hadoop /opt/hadoop/
   
   
   
