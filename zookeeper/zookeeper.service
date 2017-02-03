@@ -8,6 +8,7 @@ After=network.target remote-fs.target
 Type=forking
 User=zookeeper
 Group=zookeeper
+Restart=always
 ExecStart=/opt/zookeeper/bin/zkServer.sh start
 ExecStop=/opt/zookeeper/bin/zkServer.sh stop
 ExecReload=/opt/zookeeper/bin/zkServer.sh restart
