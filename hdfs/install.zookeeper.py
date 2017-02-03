@@ -66,6 +66,29 @@ systemctl start zookeeper
 
 
 
+# Verify ZooKeeper Operation
+#------------------------------------------------------------------------------
+
+# A basic check can be done by executing the ruok (Are you ok?) command on all nodes. 
+# This will reply with imok (I am ok.) if the server is running in a non-error state:
+
+echo ruok | nc 127.0.0.1 2181
+# imok
+
+
+# More detailed information can be requested with the stat
+echo stat | nc 127.0.0.1 2181
+
+
+
+
+
+
+
+
+
+
+
 
   
   
