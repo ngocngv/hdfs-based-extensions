@@ -16,12 +16,12 @@
 ## Install Java JRE
 yum install java-1.8.0-openjdk
 yum install java-1.8.0-openjdk.x86_64
+yum install java-1.8.0-openjdk-headless.x86_64
 
 ## Install Java JDK
-yum install java-1.8.0-openjdk-devel
+yum install java-1.8.0-openjdk-devel.x86_64
 
 #
-# yum install java-1.8.0-openjdk-headless
 java -version 
 
 
