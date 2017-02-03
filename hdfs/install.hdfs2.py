@@ -129,7 +129,11 @@ echo $ZOOKEEPER_HOME
 
   
   
-  
+# Copy the Java and Hadoop-2.x, zookeeper-3.x directories, and .bashrc file to all the nodes (Standby namenode, datanode)
+scp –r <path of directory> hadoop@<ipaddr>:<path where you need to copy>
+
+
+
   
   
   
