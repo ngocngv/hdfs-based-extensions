@@ -57,6 +57,13 @@ echo '3' > /opt/zookeeper/data/myid
 
 
 
+# Edit /etc/systemd/system/zookeeper.service
+
+## Loaded
+systemctl daemon-reload
+systemctl enable zookeeper
+systemctl start zookeeper
+
 
 
 
