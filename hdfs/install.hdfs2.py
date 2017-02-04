@@ -157,4 +157,59 @@ chown -R hadoop:hadoop /opt/hadoop/
   
   
   
+#####################################################
+su - hadoop
+
+
+# Start the Journalnode in all the nodes.
+hadoop-daemon.sh start journalnode
+#jps: JournalNode
+
+
+
+# Format the Active namenode.
+# hadoop namenode -format
+hdfs namenode -format
+
+
+# Start the Namenode daemon in Active namenode.
+hadoop-daemon.sh start namenode
+
+
+# Copy the HDFS Metadata from active namenode to standby namenode.
+hdfs namenode -bootstrapStandby
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
