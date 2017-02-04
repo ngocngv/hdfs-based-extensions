@@ -12,6 +12,6 @@
 
 	<property>
 		<name>dfs.journalnode.edits.dir</name>
-		<value>/opt/hadoop/jn</value>
+		<value>/opt/hadoop/dfs/jn</value>
 	</property>
 </configuration>
