@@ -22,54 +22,88 @@
 		<value>/opt/hadoop/namenode</value>
 	</property>
 	
-	<!-- dfs.nameservices -->
+	<!-- dfs.nameservices HA -->
 	<property>
 		<name>dfs.nameservices</name>
-		<value>hadoop-cluster</value>
+		<value>hadoop</value>
 	</property>
 	<property>
-		<name>dfs.ha.namenodes.hadoop-cluster</name>
-		<value>nn1,nn2,nn3</value>
+		<name>dfs.ha.namenodes.hadoop</name>
+		<value>nn1,nn2</value>
 	</property>
 	
 	<!-- dfs.namenode.rpc-address -->
 	<property>
-		<name>dfs.namenode.rpc-address.hadoop-cluster.nn1</name>
-		<value>nn1.hdfs:8020</value>
+		<name>dfs.namenode.rpc-address.hadoop.nn1</name>
+		<value>yarn1.local:8020</value>
 	</property>
 	<property>
-		<name>dfs.namenode.rpc-address.hadoop-cluster.nn2</name>
-		<value>nn2.hdfs:8020</value>
-	</property>
-	<property>
-		<name>dfs.namenode.rpc-address.hadoop-cluster.nn3</name>
-		<value>nn3.hdfs:8020</value>
+		<name>dfs.namenode.rpc-address.hadoop.nn2</name>
+		<value>yarn2.local:8020</value>
 	</property>
 	
 	<!-- dfs.namenode.http-address -->
 	<property>
-		<name>dfs.namenode.http-address.hadoop-cluster.nn1</name>
-		<value>nn1.hdfs:50070</value>
+		<name>dfs.namenode.http-address.hadoop.nn1</name>
+		<value>yarn1.local:50070</value>
 	</property>
 	<property>
-		<name>dfs.namenode.http-address.hadoop-cluster.nn2</name>
-		<value>nn2.hdfs:50070</value>
+		<name>dfs.namenode.http-address.hadoop.nn2</name>
+		<value>yarn2.local:50070</value>
 	</property>
+	
+	
+	<!-- namenode editlog sync -->
+  	<property>
+    		<name>dfs.journalnode.rpc-address</name>
+    		<value>0.0.0.0:8485</value>
+  	</property>
 	<property>
-		<name>dfs.namenode.http-address.hadoop-cluster.nn3</name>
-		<value>nn3.hdfs:50070</value>
-	</property>
+    		<name>dfs.journalnode.http-address</name>
+    		<value>0.0.0.0:8480</value>
+  	</property>
 	
 	<!-- dfs.namenode.shared.edits -->
 	<property>
 		<name>dfs.namenode.shared.edits.dir</name>
-		<value>qjournal://nn1.hdfs:8485;nn2.hdfs:8485;nn3.hdfs:8485/hadoop-cluster</value>
+		<value>qjournal://yarn1.local:8485;yarn1.local:8485;yarn1.local:8485/hadoop</value>
 	</property>
 	
+	<!-- 
+  	<property>
+    		<name>dfs.namenode.shared.edits.dir</name>
+    		<value>qjournal://yarn4.local:8485;yarn5.local:8485;yarn6.local:8485/hadoop</value>
+  	</property>
+
 	<property>
-		<name>dfs.client.failover.proxy.provider.hadoop-cluster</name>
+		<name>dfs.journalnode.edits.dir</name>
+		<value>/opt/hadoop/dfs/jn</value>
+	</property>
+	-->
+	
+	
+	<!-- datanode -->
+  	<property>
+    		<name>dfs.datanode.http.address</name>
+    		<value>0.0.0.0:8075</value>
+  	</property>
+  	<property>
+    		<name>dfs.namenode.edits.journal-plugin.qjournal</name>
+    		<value>org.apache.hadoop.hdfs.qjournal.client.QuorumJournalManager</value>
+  	</property>
+	
+	<!-- dataNode editlog sync -->
+	<property>
+		<name>dfs.client.failover.proxy.provider.hadoop</name>
 		<value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
 	</property>
+	
+	<!-- failover -->
+	<property>
+		<name>dfs.ha.fencing.methods</name>
+		<value>sshfence</value>
+	</property>
+	
 	<property>
 		<name>dfs.ha.automatic-failover.enabled</name>
 		<value>true</value>
@@ -78,13 +112,9 @@
 	<!-- ha.zookeeper.quorum -->
 	<property>
 		<name>ha.zookeeper.quorum</name>
-		<value>zk01:2181,zk02:2181,zk03:2181</value>
+		<value>zk1.local:2181,zk2.local:2181,zk3.local:2181</value>
 	</property>
-	<property>
-		<name>dfs.ha.fencing.methods</name>
-		<value>sshfence</value>
-	</property>
-	
+
 	<!-- dfs.ha.fencing.ssh.private-key -->
 	<property>
 		<name>dfs.ha.fencing.ssh.private-key-files</name>
