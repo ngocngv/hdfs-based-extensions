@@ -54,8 +54,11 @@ echo '2' > /opt/zookeeper/data/myid
 echo '3' > /opt/zookeeper/data/myid
 
 
+# 
+chown -R zookeeper:zookeeper /opt/zookeeper/data/myid
 
-
+  
+  
 
 # Edit /etc/systemd/system/zookeeper.service
 
