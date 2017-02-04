@@ -152,10 +152,20 @@ chown -R hadoop:hadoop /opt/hadoop/
   
   
   
+
   
   
   
+# It doesn't support three namenodes, according to /opt/hadoop-2.7.3/logs/hadoop-namenode-test01.log:
+# java.lang.IllegalArgumentException: Expected exactly 2 NameNodes in namespace 'hadoop-cluster'. Instead, got only 3 (NN ids were 'nn1','nn2','nn3' ...)
   
+                                                                                                                     
+
+                                                                                                                
+                                                                                                                
+                                                                                                                
+                                                                                                                
+                                                                                                                
   
 #####################################################
 su - hadoop
