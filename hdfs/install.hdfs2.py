@@ -178,6 +178,9 @@ hadoop-daemon.sh start journalnode
 
 
 
+# Active NaneNode
+#-------------------------
+
 # Format the Active namenode.
 # hadoop namenode -format
 hdfs namenode -format
@@ -187,16 +190,19 @@ hdfs namenode -format
 hadoop-daemon.sh start namenode
 
 
+
+# Standby Namenode
+#--------------------------
+
 # Copy the HDFS Metadata from active namenode to standby namenode.
 hdfs namenode -bootstrapStandby
 
+# Information of Active namenode details.
+# Information regarding HDFS in Standby Namenode.
 
 
-
-
-
-
-
+# Start the Namenode daemon in Standby namenode machine.
+hadoop-daemon.sh start namenode
 
 
 
