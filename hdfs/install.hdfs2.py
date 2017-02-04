@@ -208,6 +208,11 @@ hadoop-daemon.sh start namenode
 
 
 
+# Now start the Zookeeper service in all the three nodes.
+zkServer.sh start
+systemctl start zookeeper
+
+# In all the nodes you will see the QuorumPeerMain service.
 
 
 
@@ -215,12 +220,9 @@ hadoop-daemon.sh start namenode
 
 
 
-
-
-
-
-
-
+# Start the DataNode daemon in DataNode machine.
+#-----------------------------------------------------------------------
+hadoop-daemon.sh start datanode
 
 
 
