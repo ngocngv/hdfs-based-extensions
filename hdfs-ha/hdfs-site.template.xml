@@ -66,7 +66,7 @@
 	<!-- dfs.namenode.shared.edits -->
 	<property>
 		<name>dfs.namenode.shared.edits.dir</name>
-		<value>qjournal://yarn1.local:8485;yarn1.local:8485;yarn1.local:8485/hadoop</value>
+		<value>qjournal://yarn1.local:8485;yarn2.local:8485;yarn3.local:8485/hadoop</value>
 	</property>
 	
 	<!-- 
