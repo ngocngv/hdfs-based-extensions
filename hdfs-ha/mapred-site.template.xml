@@ -3,8 +3,16 @@
 
 
 <configuration>
-  <property>
-    <name>mapreduce.framework.name</name>
-    <value>yarn</value>
-  </property>
+
+	  <!-- Identifies the RM in the cluster -->
+	  <property>
+    		<name>yarn.resourcemanager.ha.id</name>
+    		<value>rm1</value>
+  	</property>
+
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+    </property>
+
 </configuration>
