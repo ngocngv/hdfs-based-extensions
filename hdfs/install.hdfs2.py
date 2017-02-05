@@ -276,6 +276,7 @@ http://yarn6.local:23999/
 NameNode
 DFSZKFailoverController
 ResourceManager
+ZooKeeper
 
 #-------------------------------------------
 # yarn2.local
@@ -283,11 +284,13 @@ ResourceManager
 NameNode
 DFSZKFailoverController
 ResourceManager
+ZooKeeper
 
 #-------------------------------------------
 # yarn3.local
 #-------------------------------------------
 ResourceManager
+ZooKeeper
 
 #-------------------------------------------
 # yarn4.local
@@ -313,4 +316,34 @@ NodeManager
   
   
   
+
+# Test mapred
+#-----------------------------------------------------------------------------
+cd /opt/hadoop/share/hadoop/mapreduce
+
+yarn jar hadoop-mapreduce-examples-2.7.3.jar pi 4 8
+
+
+# check
+http://yarn1.local:23188/cluster/apps
+http://yarn3.local:23999/node/allApplications
     
+
+
+
+
+# Stop YARN cluster
+#-----------------------------------------------------------------------------
+
+# yarn1.local
+sbin/stop-yarn.sh
+
+
+# yarn2.local
+# yarn3.local
+sbin/yarn-daemon.sh stop resourcemanager
+
+
+
+
+
