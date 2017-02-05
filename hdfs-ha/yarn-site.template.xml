@@ -4,6 +4,12 @@
 
 <!-- Site specific YARN configuration properties -->
 
+	<!-- Identifies the RM in the cluster -->
+	<property>
+    		<name>yarn.resourcemanager.ha.id</name>
+    		<value>rm1</value>
+  	</property>
+	
 	
 	<!-- Resource Manager HA -->
 	<property>
