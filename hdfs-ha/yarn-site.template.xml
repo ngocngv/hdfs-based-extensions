@@ -15,10 +15,11 @@
     		<name>yarn.resourcemanager.ha.automatic-failover.embedded</name>
     		<value>true</value>
   	</property>
-  	<property>
-      		<name>yarn.resourcemanager.ha.automatic-failover.enabled</name>
-      		<value>true</value>
-  	</property>
+	<property>
+		<name>yarn.resourcemanager.ha.automatic-failover.enabled</name>
+		<value>true</value>
+		<description>Enable automatic failover; By default, it is enabled only when HA is enabled.</description>
+	</property>
 	
 	<!--  -->
 	<property>
@@ -62,10 +63,119 @@
       		<value>zk1.local:2181,zk2.local:2181,zk3.local:2181</value>
   	</property>
 	
+	<property>
+      		<name>yarn.app.mapreduce.am.scheduler.connection.wait.interval-ms</name>
+      		<value>5000</value>
+  	</property>
+  	<property>
+      		<name>yarn.resourcemanager.ha.automatic-failover.zk-base-path</name>
+      		<value>/yarn-leader-election</value>
+  	</property>
+	
+	
+	<!-- AM RPC (scheduler interface) -->
+  	<property>
+    		<name>yarn.resourcemanager.address.rm1</name>
+    		<value>yarn1.local:23140</value>
+    	</property>
+  	<property>
+    		<name>yarn.resourcemanager.address.rm2</name>
+    		<value>yarn2.local:23140</value>
+    	</property>
+  	<property>
+    		<name>yarn.resourcemanager.address.rm3</name>
+    		<value>yarn3.local:23140</value>
+    	</property>
 
 	<property>
-		<name>yarn.resourcemanager.ha.automatic-failover.enabled</name>
-		<value>true</value>
-		<description>Enable automatic failover; By default, it is enabled only when HA is enabled.</description>
-	</property>
+    		<name>yarn.resourcemanager.scheduler.address.rm1</name>
+    		<value>yarn1.local:23130</value>
+    	</property>
+  	<property>
+    		<name>yarn.resourcemanager.scheduler.address.rm2</name>
+    		<value>yarn2.local:23130</value>
+    	</property>
+  	<property>
+    		<name>yarn.resourcemanager.scheduler.address.rm3</name>
+    		<value>yarn3.local:23130</value>
+    	</property>
+	
+	<property>
+    		<name>yarn.resourcemanager.admin.address.rm1</name>
+    		<value>yarn1.local:23141</value>
+    	</property>
+  	<property>
+    		<name>yarn.resourcemanager.admin.address.rm2</name>
+    		<value>yarn2.local:23141</value>
+    	</property>
+  	<property>
+    		<name>yarn.resourcemanager.admin.address.rm3</name>
+    		<value>yarn3.local:23141</value>
+    	</property>
+	
+	
+	<!-- NM RM RPC -->
+  	<property>
+    		<name>yarn.resourcemanager.resource-tracker.address.rm1</name>
+    		<value>yarn1.local:23125</value>
+    	</property>
+  	<property>
+    		<name>yarn.resourcemanager.resource-tracker.address.rm2</name>
+    		<value>yarn2.local:23125</value>
+    	</property>
+  	<property>
+    		<name>yarn.resourcemanager.resource-tracker.address.rm3</name>
+    		<value>yarn3.local:23125</value>
+    	</property>
+	
+	
+	<!-- RM web application -->
+  	<property>
+    		<name>yarn.resourcemanager.webapp.address.rm1</name>
+    		<value>yarn1.local:23188</value>
+    	</property>
+  	<property>
+    		<name>yarn.resourcemanager.webapp.address.rm2</name>
+    		<value>yarn2.local:23188</value>
+    	</property>
+  	<property>
+    		<name>yarn.resourcemanager.webapp.address.rm3</name>
+    		<value>yarn3.local:23188</value>
+    	</property>
+	
+	
+	<!-- Node Manager -->
+  	<property>
+    		<name>yarn.nodemanager.vmem-pmem-ratio</name>
+    		<value>10</value>
+  	</property>
+	<!--
+  	<property>
+    		<name>yarn.nodemanager.log-dirs</name>
+		<value>${yarn.log.dir}/userlogs</value>
+  	</property>
+	-->
+	<property>
+    		<name>yarn.nodemanager.log-dirs</name>
+    		<value>${user.home}/hadoop/logs/userlogs</value>
+  	</property>
+  	<property>
+      		<name>yarn.nodemanager.aux-services</name>
+      		<value>mapreduce_shuffle</value>
+  	</property>
+  	<property>
+      		<name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+      		<value>org.apache.hadoop.mapred.ShuffleHandler</value>
+  	</property>
+  	<property>
+    		<name>yarn.nodemanager.localizer.address</name>
+    		<value>0.0.0.0:23344</value>
+    		<description>Address where the localizer IPC is.</description>
+  	</property>
+  	<property>
+    		<name>yarn.nodemanager.webapp.address</name>
+    		<value>0.0.0.0:23999</value>
+    		<description>NM Webapp address.</description>
+  	</property>
+	
 </configuration>
