@@ -249,6 +249,57 @@ hadoop-daemon.sh start datanode
 
 
 
+#####################################################                                                                                                           
+# Run and Test YARN
+#####################################################
 
+# yarn1.local
+sbin/start-yarn.sh
+
+
+# yarn2.local
+# yarn3.local
+sbin/yarn-daemon.sh start resourcemanager
+
+
+# check yarn:
+http://yarn1.local:23188/
+
+http://yarn4.local:23999/ 
+http://yarn5.local:23999/ 
+http://yarn6.local:23999/ 
+
+    
+
+# yarn1.local
+NameNode
+DFSZKFailoverController
+ResourceManager
+
+#yarn2.local
+NameNode
+DFSZKFailoverController
+ResourceManager
+
+#yarn3.local
+ResourceManager
+
+#yarn4.local
+DataNode
+JournalNode
+NodeManager
+
+#yarn5.local
+DataNode
+JournalNode
+NodeManager
+
+#yarn6.local
+DataNode
+JournalNode
+NodeManager    
+    
   
-
+  
+  
+    
