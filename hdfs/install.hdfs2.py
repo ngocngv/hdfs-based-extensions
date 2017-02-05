@@ -270,31 +270,42 @@ http://yarn5.local:23999/
 http://yarn6.local:23999/ 
 
     
-
+#-------------------------------------------
 # yarn1.local
+#-------------------------------------------
 NameNode
 DFSZKFailoverController
 ResourceManager
 
-#yarn2.local
+#-------------------------------------------
+# yarn2.local
+#-------------------------------------------
 NameNode
 DFSZKFailoverController
 ResourceManager
 
-#yarn3.local
+#-------------------------------------------
+# yarn3.local
+#-------------------------------------------
 ResourceManager
 
-#yarn4.local
+#-------------------------------------------
+# yarn4.local
+#-------------------------------------------
 DataNode
 JournalNode
 NodeManager
 
-#yarn5.local
+#-------------------------------------------
+# yarn5.local
+#-------------------------------------------
 DataNode
 JournalNode
 NodeManager
 
-#yarn6.local
+#-------------------------------------------
+# yarn6.local
+#-------------------------------------------
 DataNode
 JournalNode
 NodeManager    
