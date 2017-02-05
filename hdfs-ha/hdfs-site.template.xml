@@ -2,9 +2,14 @@
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 
 
-<!-- Put site-specific property overrides in this file. -->
-
 <configuration>
+	
+	<!-- Enable WebHDFS (REST API) in Namenodes and Datanodes. -->
+	<property>
+    		<name>dfs.webhdfs.enabled</name>
+    		<value>true</value>
+  	</property>
+	
 	<property>
 		<name>dfs.replication</name>
 		<value>2</value>
@@ -13,14 +18,34 @@
 		<name>dfs.permissions</name>
 		<value>false</value>
 	</property>
+	
+	<!-- dfs.namenode -->
+	<property>
+		<name>dfs.namenode.name.dir</name>
+		<value>/opt/hadoop/namenode</value>
+	</property>
+	<property>
+    		<name>dfs.namenode.name.dir</name>
+		<value>file://${hadoop.tmp.dir}/dfs/name</value>
+    		<description>namenode name table(fsimage) directory</description>
+  	</property>
+	<property>
+    		<name>dfs.namenode.edits.dir</name>
+    		<value>${dfs.namenode.name.dir}</value>
+    		<description>namenode transaction file(edits) directory</description>
+  	</property>
+	
+	<!-- dfs.datanode -->
 	<property>
 		<name>dfs.datanode.data.dir</name>
 		<value>/opt/hadoop/datanode/data1,/opt/hadoop/datanode/data2,/opt/hadoop/datanode/data3,/opt/hadoop/datanode/data4,/opt/hadoop/datanode/data5</value>
 	</property>
 	<property>
-		<name>dfs.namenode.name.dir</name>
-		<value>/opt/hadoop/namenode</value>
-	</property>
+    		<name>dfs.datanode.data.dir</name>
+		<value>file://${hadoop.tmp.dir}/dfs/data</value>
+    		<description>datanode block directory</description>
+  	</property>
+	
 	
 	<!-- dfs.nameservices HA -->
 	<property>
