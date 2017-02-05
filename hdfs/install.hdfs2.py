@@ -166,33 +166,48 @@ chown -R hadoop:hadoop /opt/hadoop/
                                                                                                                 
                                                                                                                 
                                                                                                                 
-                                                                                                                
-  
+#####################################################                                                                                                           
+# Run and Test HDFS
 #####################################################
+
+
+#---------------------------
+# JournalNode
+#---------------------------
 su - hadoop
 
 
 # Start the Journalnode in all the nodes.
 hadoop-daemon.sh start journalnode
-#jps: JournalNode
+
+# JournalNode on yarn4.local:8480
+# JournalNode on yarn5.local:8480
+# JournalNode on yarn6.local:8480
 
 
 
+#---------------------------
 # Active NaneNode
-#-------------------------
+#---------------------------
 
 # Format the Active namenode.
-# hadoop namenode -format
-hdfs namenode -format
+hdfs namenode -format  |  hadoop namenode -format
+
+# zkfc init
+hdfs zkfc -formatZK
+
 
 
 # Start the Namenode daemon in Active namenode.
+sbin/start-dfs.sh
+
 hadoop-daemon.sh start namenode
 
 
 
+#---------------------------
 # Standby Namenode
-#--------------------------
+#---------------------------
 
 # Copy the HDFS Metadata from active namenode to standby namenode.
 hdfs namenode -bootstrapStandby
@@ -200,11 +215,8 @@ hdfs namenode -bootstrapStandby
 # Information of Active namenode details.
 # Information regarding HDFS in Standby Namenode.
 
-
 # Start the Namenode daemon in Standby namenode machine.
 hadoop-daemon.sh start namenode
-
-
 
 
 
@@ -216,7 +228,15 @@ systemctl start zookeeper
 
 
 
+# Start the Zookeeper failover controller in Active namenode and standby namenode.
+hdfs zkfc -formatZK
+hadoop-daemon.sh start zkfc
 
+
+
+# Now check the status of each Namenode
+hdfs haadmin -getServiceState nn1
+hdfs haadmin -getServiceState nn2
 
 
 
