@@ -116,10 +116,16 @@ STORE profit_country INTO '/pig_analytics/out_profit_Q1' USING PigStorage (',');
 
 
 
+# Data Processing Task
+#------------------------------------------------------------------------------
 
-
-
-
+- LOAD two sample datasets from the file system
+- FILTER tuples from one dataset
+- JOIN two datasets
+- Performs transformations on FOREACH row in the data
+- STORE the results to the file system
+- GROUP the data into another output dataset
+- DUMP or display the cummulative results to screen
 
 
 
