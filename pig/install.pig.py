@@ -41,6 +41,16 @@ source ~/.bashrc
 
 echo $PIG_HOME 
 
+# cd $PIG_HOME/bin
+pig -version
+
+
+
+
+
+
+
+
 
 
 
