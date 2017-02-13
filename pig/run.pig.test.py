@@ -130,6 +130,29 @@ STORE profit_country INTO '/pig_analytics/out_profit_Q1' USING PigStorage (',');
 
 
 
+#------------------------------------------------------------------------------
+pig
+
+grunt> exec /root/profit_analysis.pig
+grunt> quit
+
+
+
+# Let us validate the data loaded in HDFS.
+hadoop fs -ls -R /pig_analytics
+hadoop fs -cat /pig_analytics/out_profit_Q1_dtl/part-r-00000
+hadoop fs -cat /pig_analytics/out_profit_Q1/part-r-00000
+
+
+
+
+
+
+
+
+
+
+
 
 
 
