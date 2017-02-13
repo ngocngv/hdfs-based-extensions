@@ -1,5 +1,28 @@
 
 
+
+
+    
+    
+# The description of the important folders:
+#------------------------------------------------------------------------------  
+
+# /sbin         Contain start, stop master and slave scripts
+# /bin          Contain Scala and Python Spark shell
+# /conf         Contain configuration files
+# /data         Contain graph, machine leraning and streaming job data
+# /jars         Contains jar included in Spark Classpath
+# /examples     Contain example for Spark job
+# /logs         Contain all log file
+
+
+
+
+
+
+
+
+
 # https://dwbi.org/etl/bigdata/201-install-spark-in-hadoop-cluster
 
 
@@ -165,31 +188,40 @@ http://spark.master.com:8080
 
 
 
+
+
+
+# Running a Spark example
+#------------------------------------------------------------------------------ 
+
+# run the Spark example job
+bin/spark-submit --class org.apache.spark.examples.SparkPi --master spark://yarn1.local:7077 examples/jars/spark-examples_2.11-2.1.0.jar 1000
+
+
+
+#  SparkUI: Spark web UI
+http://yarn1.local:4040
+
+
+
+
+
+
+# Running multiple instance of Spark Worker
+#------------------------------------------------------------------------------ 
+
+# Add the below line to /conf/spark-env.sh
+export SPARK_WORKER_INSTANCES=2
+
+# Then start the worker threads
+sbin/start-slave.sh spark://yarn1.local:7077 --cores 2 --memory 2g
     
     
-# The description of the important folders:
-#------------------------------------------------------------------------------  
 
-# /sbin         Contain start, stop master and slave scripts
-# /bin          Contain Scala and Python Spark shell
-# /conf         Contain configuration files
-# /data         Contain graph, machine leraning and streaming job data
-# /jars         Contains jar included in Spark Classpath
-# /examples     Contain example for Spark job
-# /logs         Contain all log file
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
+    
+    
+    
+    
+    
 
