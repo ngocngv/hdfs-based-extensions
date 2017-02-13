@@ -124,8 +124,8 @@ scp -r /opt/spark spark@datanode1:/opt/spark
 scp -r /opt/spark spark@datanode2:/opt/spark
 
 
-  
-# Setup Environment Variables   
+
+# Setup Environment Variables
 # edit ~/.bashrc  |  ~/.bash_profile
 
 ## Spark env variables
@@ -157,20 +157,34 @@ spark.slave3.com
 
 
 
+
+
+
+# http://spark.apache.org/docs/latest/cluster-overview.html
+
+# http://spark.apache.org/docs/latest/spark-standalone.html
+
+
+
+
+
 # Start Spark on Master and Connect Slave Nodes
 #------------------------------------------------------------------------------  
 
 # The following command should spin up the full cluster
-sbin/start-all.sh
+/sbin/start-all.sh
 
 # However, if in the next step the slave nodes do not appear under the worker-ids tab you can start each node manually, 
 # which is a pain but will work.
 
-# To do that use the following terminal command on the master
-sbin/start-master.sh
+# You can start a standalone master server by executing:
+/sbin/start-master.sh
 
 
-# and use the following terminal command on each slave
+# You can start one or more workers and connect them to the master via:
+/sbin/start-slave.sh  <master-spark-URL>
+
+#
 sbin/start-slave.sh spark.master.com:7077
 
 sbin/start-slave.sh spark://yarn2.local:7077
