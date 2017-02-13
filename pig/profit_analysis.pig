@@ -30,3 +30,5 @@ profit_country = FOREACH profit_by_country GENERATE group as country, MIN(profit
 
 -- Load final summary data into HDFS
 STORE profit_country INTO '/pig_analytics/out_profit_Q1' USING PigStorage (',');
+
+
