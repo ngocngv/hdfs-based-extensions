@@ -146,11 +146,14 @@ sbin/start-all.sh
 # To do that use the following terminal command on the master
 sbin/start-master.sh
 
+
 # and use the following terminal command on each slave
 sbin/start-slave.sh spark.master.com:7077
 
+sbin/start-slave.sh spark://yarn2.local:7077
+sbin/start-slave.sh spark://yarn3.local:7077
 
-
+    
 
 
 # Connect to Master Node IP from Web Browser
@@ -162,7 +165,18 @@ http://spark.master.com:8080
 
 
 
+    
+    
+# The description of the important folders:
+#------------------------------------------------------------------------------  
 
+# /sbin	        Contain start, stop master and slave scripts
+# /bin	          Contain Scala and Python Spark shell
+# /conf	        Contain configuration files
+# /data	        Contain graph, machine leraning and streaming job data
+# /jars	        Contains jar included in Spark Classpath
+# /examples	    Contain example for Spark job
+# /logs	        Contain all log file
 
 
 
