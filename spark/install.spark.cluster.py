@@ -38,12 +38,21 @@ chown -R spark:spark /opt/spark/
 #------------------------------------------------------------------------------  
 su - spark  
 # edit ~/.bashrc  |  ~/.bash_profile
-  
+
+
+## JAVA env variables
+export JAVA_HOME=/usr/java/default
+export PATH=$PATH:$JAVA_HOME/bin
+export CLASSPATH=.:$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
 
 ## Spark env variables
 export SPARK_HOME=/opt/spark
 export PATH=$PATH:$SPARK_HOME/bin
 
+## HADOOP env variables
+export HADOOP_HOME=/opt/hadoop
+export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
 
 
 # apply the changes in current running environment
