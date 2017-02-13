@@ -4,6 +4,21 @@
 
 
 
+
+# Create User Account
+#------------------------------------------------------------------------------
+useradd -d /opt/spark -m spark
+passwd spark
+
+#
+echo "spark ALL = (root) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/spark
+chmod 0440 /etc/sudoers.d/spark
+
+
+
+
+
+
 # Master Server Setup
 #------------------------------------------------------------------------------  
 cd /opt
@@ -11,7 +26,7 @@ cd /opt
 wget http://www-us.apache.org/dist/spark/spark-2.1.0/spark-2.1.0-bin-hadoop2.7.tgz
   
 tar xzf spark-2.1.0-bin-hadoop2.7.tgz
-mv spark-2.1.0-bin-hadoop2.7.tgz spark
+mv spark-2.1.0-bin-hadoop2.7 spark
 
 chown -R spark:spark /opt/spark/
 
