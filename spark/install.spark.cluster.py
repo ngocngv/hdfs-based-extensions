@@ -92,7 +92,7 @@ DataNode2
 
 
 
-# Slave Server Setup
+# Install Spark and Dependencies (Repeat on Each Node)
 #------------------------------------------------------------------------------  
 
 
@@ -114,6 +114,49 @@ export PATH=$PATH:$SPARK_HOME/bin
 source ~/.bashrc
 
 echo $SPARK_HOME 
+
+
+
+
+
+# Add Each Slave Node Address to Master Node Config File
+#------------------------------------------------------------------------------  
+
+# edit $SPARK_HOME/conf/slaves
+spark.master.com
+
+spark.slave1.com
+spark.slave2.com
+spark.slave3.com
+
+
+
+
+
+
+# Start Spark on Master and Connect Slave Nodes
+#------------------------------------------------------------------------------  
+
+# The following command should spin up the full cluster
+sbin/start-all.sh
+
+# However, if in the next step the slave nodes do not appear under the worker-ids tab you can start each node manually, 
+# which is a pain but will work.
+
+# To do that use the following terminal command on the master
+sbin/start-master.sh
+
+# and use the following terminal command on each slave
+sbin/start-slave.sh spark.master.com:7077
+
+
+
+
+
+# Connect to Master Node IP from Web Browser
+http://spark.master.com:8080
+
+
 
 
 
