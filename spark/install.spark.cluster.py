@@ -170,13 +170,13 @@ http://spark.master.com:8080
 # The description of the important folders:
 #------------------------------------------------------------------------------  
 
-# /sbin	        Contain start, stop master and slave scripts
-# /bin	          Contain Scala and Python Spark shell
-# /conf	        Contain configuration files
-# /data	        Contain graph, machine leraning and streaming job data
-# /jars	        Contains jar included in Spark Classpath
-# /examples	    Contain example for Spark job
-# /logs	        Contain all log file
+# /sbin         Contain start, stop master and slave scripts
+# /bin          Contain Scala and Python Spark shell
+# /conf         Contain configuration files
+# /data         Contain graph, machine leraning and streaming job data
+# /jars         Contains jar included in Spark Classpath
+# /examples     Contain example for Spark job
+# /logs         Contain all log file
 
 
 
