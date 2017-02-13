@@ -21,7 +21,7 @@ $SPARK_HOME/bin/spark-shell --master spark://yarn1.local:7077
 
 
 
-
+#------------------------------------------------------------------------------
 
 scala> val rdd_profit = sc.textFile("/pig_analytics/Profit_Q1.txt")
 rdd_profit: org.apache.spark.rdd.RDD[String] = /pig_analytics/Profit_Q1.txt MapPartitionsRDD[1] at textFile at :24
@@ -63,15 +63,23 @@ scala> rdd_profit_q1.repartition(1).saveAsTextFile("/spark_analytics/profit")
 
 scala> :quit
 
+#------------------------------------------------------------------------------
 
 
 
 
 
 
+# check the output files in HDFS.
+hadoop fs -ls /spark_analytics/profit
 
 
+hadoop fs -tail /spark_analytics/profit/part-00000
+hadoop fs -cat /spark_analytics/profit/part-00000
 
+# (US,35900000)
+# (SINGAPORE,28600000)
+# (INDIA,19200000)
 
 
 
